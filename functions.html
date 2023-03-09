@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="task"/>
+	<button onclick="handleClick()">Add</button>
+	<h2>To Do List</h2>
+	<div id="todoList"></div>
+	
+
+
+
+
+
+	<script>
+		function addTask(newtask) {
+			let todoList= document.getElementById("todoList").innerHTML
+			document.getElementById("todoList").innerHTML = todoList + `<p>${newtask}</p>`
+		}
+
+		function handleClick() {
+			let task = document.getElementById('task').value
+			addTask(task)
+			document.getElementById('task').value = ""
+		}
+	
+		console.log(localStorage.getItem('tasks'))
+	</script>
+
+</body>
+</html>

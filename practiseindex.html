@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <p id="note"></p>
+    <p id="note2"></p>
+    <h2>student details</h2>
+    <p id="fullname"></p>
+    <p id="bannerId"></p>
+    
+
+    
+
+    <script>
+        function managetitle() {
+            let title="JavaScript Functions"
+            return title
+        }
+        let _title= managetitle()
+        
+
+        function capitalizedtitle(input) {
+           return input+"!"
+        }
+        
+        document.getElementById("title").innerHTML= capitalizedtitle(_title)
+
+        function managecontent() { 
+            let contents="A JavaScript function is a block of code designed to perform a particular task"
+            document.getElementById("note").innerHTML= contents
+            document.getElementById("note2").innerHTML= contents
+        }
+
+        managecontent()
+
+        const student={
+            firstName:"tosin",
+            lastName:"okuntade",
+            bannerId:"b00874244"
+        }
+        document.getElementById("bannerId").innerHTML= student.bannerId
+        document.getElementById("fullname").innerHTML= student.firstName + " "+ student.lastName
+        console.log(student.firstName.length)
+        
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
