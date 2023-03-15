@@ -6,18 +6,41 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<style>
-		input[type="text"], button {
+		body {
+			font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			text-align: left;
+		}
+		input[type="text"], button, th, td {
 			padding: 5px
+		}
+		button.completed {
+			font-size: 10px
+		}
+		table {
+			border-collapse: collapse;
+		}
+		th {
+			border-bottom: 1px solid;
 		}
 	</style>
 </head>
 <body>
-	<h3>ToDo List</h3>
-	<div>
+	<h3>My ToDo List</h3>
+	<div style="margin-bottom: 20px">
 		<input type="text" id="newTask" placeholder="Enter task description">
 		<button onclick="addNewTask()">Add</button>
 	</div>
-	<ul id="tasks"></ul>
+	<table id="tasks">
+		<thead>
+			<tr>
+				<th>Task</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody id="my_tasks">
+			
+		</tbody>
+	</table>
 	<script src="index.js"></script>
 </body>
 </html>
