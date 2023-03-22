@@ -29,12 +29,19 @@
 	<h3>My ToDo List</h3>
 	<div style="margin-bottom: 20px">
 		<input type="text" id="newTask" placeholder="Enter task description">
-		<button>Add</button>
+		<button onclick="addNewTask()">Add</button>
 	</div>
-
-	<h4>Tasks</h4>
-	<ul id="my_tasks"></ul>
-
+	<table id="tasks">
+		<thead>
+			<tr>
+				<th>Task</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody id="my_tasks">
+			
+		</tbody>
+	</table>
 	<script src="app.js"></script>
 </body>
 </html>
