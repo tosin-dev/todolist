@@ -1,12 +1,10 @@
 $(document).ready(function() {
 
-	$("#addButton").on('click', function() {
+	$("button").on('click', function() {
 		const newTaskDescription = $("#newTask").val();
-		const d = new Date()
-		const task2 = {id:d.getTime(), label:newTaskDescription}
-		tasks.push(task2);
+		tasks.push(newTaskDescription);
 		localStorage.setItem("tasks", JSON.stringify(tasks))
-		$("#newTask").val("")
+		$("newTask").val("")
 
 		showTasks()
 	});
@@ -25,8 +23,8 @@ $(document).ready(function() {
 		myTasks.forEach(function(task) {
 			myTasksList += `
 				<li>
-					${task.label}
-					<button type="button" id="${task.id}" class="alertButton">Completed</button>
+					${task}
+					<button type="button" class="alertButton">Completed</button>
 				</li>
 			`
 		})
@@ -38,7 +36,7 @@ $(document).ready(function() {
 
 	localStorage.setItem("tasks", JSON.stringify(tasks))
 
-	showTasks()
+	// showTasks()
 });
 
 
