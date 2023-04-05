@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function Task(props) {
+        return (
+          <li>
+            {props.task.label}
+            <button type="button" id="{props.task.id}" className="completedButton">Completed</button>
+            <button type="button" id="editButton{props.task.id}" className="editButton">Edit</button>
+          </li>
+        )
+      }
+
+      function Tasks(props) {
+        const tasks = props.tasklist
+        
+        return (
+          <ul id="my_tasks">
+            { tasks.map( (_task) => { return <Task task={_task} /> } ) } 
+          </ul>
+        )
+      }
+
+      function App() {
+        const tasks= [
+          {label: "sleep", id: "123"},
+          {label: "cook", id: "456"},
+          {label: "Dance", id: "789"},
+        ];
+
+        return (
+          <>
+            <h3>My ToDo List</h3>
+            <div>
+              <input type="text" id="newTask" placeholder="Enter task description" />
+              <button type="button" id="addButton">Add</button>
+              <button type="button" id="updateButton">Update</button>
+              <input type="hidden" name="task_id" id="task_id" />
+            </div>
+
+            <h4>Tasks</h4>
+            <Tasks tasklist={tasks} />
+          </>
+        )
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />)
+    </script>
+
+  </body>
+</html>
