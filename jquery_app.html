@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My MSc Project</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<style>
+		body {
+			font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			text-align: left;
+			background-color: aquamarine;
+		}
+		input, button {
+			padding: 5px
+		}
+		button.completed {
+			font-size: 10px
+		}
+		li > span {
+			display: inline-block;
+			width: 100px
+		}
+	</style>
+</head>
+<body>
+	<h3>My ToDo List</h3>
+	<div style="margin-bottom: 20px">
+		<form id="tasksForm">
+			<label>Label: </label>
+			<input type="text" id="newTask" placeholder="Enter task description">
+			<label>Count: </label>
+			<input type="number" id="entriesCount" value="1">
+			<button type="submit" id="addButton">Add</button>
+			<button type="button" id="updateButton">Update</button>
+			<input type="hidden" name="task_id" id="task_id" />
+			<button type="button" id="clearButton">Clear</button>
+		</form>
+	</div>
+
+	<h4>Tasks</h4>
+	<ul id="my_tasks"></ul>
+
+	<script src="jquery_app.js"></script>
+</body>
+</html>
