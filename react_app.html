@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>My To-Do List Manager</title>
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: left;
+        background-color: beige;
+      }
+      input, button {
+        padding: 5px
+      }
+      button.completed {
+        font-size: 10px
+      }
+      li > span {
+        display: inline-block;
+        width: 100px
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

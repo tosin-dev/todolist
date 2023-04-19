@@ -5,7 +5,7 @@
 
     return (
       <li>
-        {props.task.label}
+        <span>{props.task.label}</span>
         <button type="button" id={_id} className="completedButton" onClick={onCompleted}>Completed</button>
         <button type="button" id="editButton{_id}" className="editButton" onClick={onEdit}>Edit</button>
       </li>
@@ -34,8 +34,9 @@
   function App() {
     const [tasks, setTasks] = React.useState([])
     const [newTaskLabel, setNewTaskLabel] = React.useState("")
-    const [newTaskId, setNewTaskId] = React.useState(0)
-    const [entriesCount, setEntriesCount] = React.useState(1)
+    const [taskIdToEdit, setTaskIdToEdit] = React.useState(0)
+
+    const entriesCount = 1;
 
     const _makeNewTask = (index, label) => {
       let d = new Date()
@@ -84,9 +85,8 @@
 
       const taskToEdit = tasks[i];
 
-      // document.getElementById('newTask').value = taskToEdit.label
       setNewTaskLabel(taskToEdit.label)
-      setNewTaskId(taskId)
+      setTaskIdToEdit(taskId)
     }
 
     const handleTaskUpdate = () => {
@@ -94,7 +94,7 @@
 
       // find the task with this ID 
       const i = updatedTasks.findIndex(function(t) {
-        return newTaskId == t.id;
+        return taskIdToEdit == t.id;
       });
 
       // and update the label of the task in the list
@@ -117,7 +117,7 @@
 
     return (
       <>
-        <h3>My ToDo List</h3>
+        <h3>My To-Do List Manager</h3>
         <form onSubmit={handleTaskAdd}>
           <label>Label: </label>
           <input 
@@ -129,20 +129,9 @@
             onChange={(e) => setNewTaskLabel(e.target.value)}
           />
 
-          <label>Count: </label>
-          <input 
-            type="number"
-            placeholder=""
-            value={entriesCount}
-            style={{width: "55px"}}
-            onChange={(e) => setEntriesCount(e.target.value)}
-          />
-
           <button type="submit" id="addButton">Add</button>
           <button type="button" id="updateButton" onClick={handleTaskUpdate}>Update</button>
           <input type="hidden" name="task_id" id="task_id" />
-
-          <button type="button" onClick={() => { setTasks([]) }}>Clear</button>
         </form>
 
         <h4>Tasks</h4>
